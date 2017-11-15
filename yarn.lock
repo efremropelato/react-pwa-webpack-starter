@@ -5514,7 +5514,7 @@ workbox-sw@^2.0.2-rc1:
   version "2.0.2-rc1"
   resolved "https://registry.yarnpkg.com/workbox-sw/-/workbox-sw-2.0.2-rc1.tgz#dcb47409c68832c0159273bf9e1bc27cb07f656a"
 
-workbox-webpack-plugin@^2.0.2-rc1:
+workbox-webpack-plugin@2.0.2-rc1:
   version "2.0.2-rc1"
   resolved "https://registry.yarnpkg.com/workbox-webpack-plugin/-/workbox-webpack-plugin-2.0.2-rc1.tgz#6bd8e55ed637ad0ccefc07fd53793d6fe1056cc9"
   dependencies:

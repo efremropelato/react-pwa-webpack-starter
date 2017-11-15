@@ -142,10 +142,14 @@ module.exports = {
       {from: `${srcDir}/images`, to: `${distDir}/images`},
       {from: `${srcDir}/manifest.json`},
       {
-        from: `${rootDir}/node_modules/workbox-sw/build/importScripts/workbox-sw.prod.v2.0.2-rc1-2.0.2-rc1.0.js`,
+        from: `${
+          rootDir
+        }/node_modules/workbox-sw/build/importScripts/workbox-sw.prod.v2.0.2-rc1-2.0.2-rc1.0.js`,
       },
       {
-        from: `${rootDir}/node_modules/workbox-sw/build/importScripts/workbox-sw.prod.v2.0.2-rc1-2.0.2-rc1.0.js.map`,
+        from: `${
+          rootDir
+        }/node_modules/workbox-sw/build/importScripts/workbox-sw.prod.v2.0.2-rc1-2.0.2-rc1.0.js.map`,
       },
     ]),
 
