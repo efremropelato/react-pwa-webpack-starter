@@ -11,10 +11,12 @@ decided to build my own. I'm very thankful to the new Webpack documentation whic
 This starter kit comes with:
 
 - [Yarn](https://yarnpkg.com/): A fast dependency manager
-- [Webpack](https://webpack.js.org) setup for [production](./config/webpack.prod.js) and [development](./config/webpack.dev.js) environments
+- [Webpack 3](https://webpack.js.org) setup for [production](./config/webpack.prod.js) and [development](./config/webpack.dev.js) environments
 - [Workbox](https://workboxjs.org/): JavaScript Libraries for Progressive Web Apps
+- [Prettier](https://github.com/prettier/prettier): Opinionated Code Formatter
 - Live reload with [webpack-dev-server](https://github.com/webpack/webpack-dev-server)
-- [Babeljs](https://babeljs.io/) to compile next generation JavaScript
+- [Babel 7](https://babeljs.io/) to compile next generation JavaScript
+- [SASS](http://sass-lang.com/)
 - [HTML Webpack Plugin](https://github.com/ampedandwired/html-webpack-plugin): Especially useful for webpack bundles that include a hash in the filename which changes every compilation. With this plugin you write a [HTML template](./src/index.html) and the plugin takes care of inserting the `.js` and `.css` script for you whenever your code changes and gets compiled.
 - [css-loader](https://github.com/webpack/css-loader) and [style-loader](https://github.com/webpack/style-loader) to loader your css and put into your `.js` bundle when in dev mode or load the css and put it in a separate folder when in production mode with [extract-text-webpack-plugin](https://github.com/webpack/extract-text-webpack-plugin)
 - [url-loader](https://github.com/webpack/url-loader) used to load your images into your bundle. This plugin can return a Data Url if the file is smaller than a byte limit. That means if you have an image file which is less than a size lime you have specified on your webpack config that assets gets bundled inline, otherwise it is copied to to your dist folder with [file-loader](https://github.com/webpack/file-loader). Hence, when you add `url-loader` to your `devDependencies` you also have to add `file-loader` cuz it's a peer dependencie.
@@ -38,26 +40,32 @@ npm install
 ```sh
 yarn start
 # or
-npm start # I haven't tested it with npm though
+npm start 
 ```
 
-The app is available on [localhost:3000](http://localhost:3000)
+> The app is available on [localhost:3000](http://localhost:3000)
 
-### Building for production
+### Building and running the production build
 ```sh
 yarn run build
-```
 
-### Running the production build
-```
-yarn run preview
-```
+npm i -g serve
+serve -s dist
 
-The app is available on [localhost:3000](http://localhost:3000)
+   ┌────────────────────────────────────────────────┐
+   │                                                │
+   │   Serving!                                     │
+   │                                                │
+   │   - Local:            http://localhost:5000    │
+   │   - On Your Network:  http://10.0.0.105:5000   │
+   │                                                │
+   │   Copied local address to clipboard!           │
+   │                                                │
+   └────────────────────────────────────────────────┘
+```
 
 ### Testing
 
-Sorry, no tests yet. Use it at your own risk.
 
 ### Linting
 
@@ -67,6 +75,12 @@ yarn run lint
 yarn run lint:fix
 ```
 
+### Formatting with Prettier
+
+```sh
+yarn run format
+```
+
 ### Contributing
 
 Pull requests are very welcome!
@@ -74,6 +88,8 @@ Pull requests are very welcome!
 ### TOD0
 
 - [X] ESLint with standard config
+- [X] Prettier
+- [X] React 16 + PWA + Babel 7
 - Tests
   - Any recommendation? mocha?, chai?, jest? Which one should I invest in?
 - Implement a Virtual DOM from scratch just for the purpose of learning with the help of

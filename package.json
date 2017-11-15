@@ -1,6 +1,6 @@
 {
-  "name": "paulo_chaves",
-  "version": "0.1.0",
+  "name": "es6-webpack-starter",
+  "version": "0.2.0",
   "description": "A starter project to work with vanilla ES6 using Babel and Webpack",
   "repository": {
     "type": "git",
@@ -16,6 +16,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --config ./config/webpack.dev.js",
     "build": "npm run clean && webpack --config ./config/webpack.prod.js",
+    "format": "prettier --write \"{src,config}/**/*.js\"",
     "lint": "eslint src config",
     "lint:fix": "npm run lint -- --fix"
   },
@@ -57,11 +58,11 @@
     "react-dom": "^16.0.0"
   },
   "prettier": {
-    "singleQuote": true,
-    "printWidth": 100,
+    "singleQuote": false,
+    "printWidth": 80,
     "semi": false,
     "trailingComma": "all",
     "bracketSpacing": false,
-    "jsxBracketSameLine": true
+    "jsxBracketSameLine": false
   }
 }
