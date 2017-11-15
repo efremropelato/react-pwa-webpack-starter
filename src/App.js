@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import classes from './app.scss'
+import React, {Component} from "react"
+import classes from "./app.scss"
 
 class App extends Component {
   constructor(props) {
