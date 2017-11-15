@@ -1,4 +1,4 @@
-# Boilerplate to build a PWA with Webpack + Workbox
+# Boilerplate to build a React PWA with Webpack + Workbox
 
 I have build this boilerplate following the Webpack documentation which is great.
 
