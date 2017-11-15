@@ -10,8 +10,7 @@ module.exports = {
   // Where to fine the source code
   context: srcDir,
 
-  // No source map for production build
-  devtool: 'source-map',
+  devtool: 'cheap-module-source-map',
 
   entry: ['./index.js'],
 
@@ -40,6 +39,7 @@ module.exports = {
     // match the output `publicPath`
     historyApiFallback: true,
     port: 3000,
+    hot: true,
   },
 
   module: {
@@ -57,29 +57,32 @@ module.exports = {
         exclude: /node_modules/,
         use: [
           'style-loader',
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              sourceMap: true,
+              localIdentName: '[name]-[local]_[hash:base64:5]',
+            },
+          },
           {
             loader: 'postcss-loader',
             options: {
               plugins: () => [
                 require('autoprefixer')({
                   browsers: [
-                    'last 3 version',
-                    'ie >= 10', // supports IE from version 10 onwards
+                    '>1%',
+                    'last 4 versions',
+                    'Firefox ESR',
+                    'not ie < 9', // React doesn't support IE8 anyway
                   ],
+                  flexbox: 'no-2009',
                 }),
               ],
             },
           },
           'sass-loader',
         ],
-      },
-      {
-        test: /\.hbs$/,
-        loader: 'handlebars-loader',
-        query: {
-          partialDirs: [path.join(srcDir, 'templates', 'partials')],
-        },
       },
       {
         test: /\.(eot?.+|svg?.+|ttf?.+|otf?.+|woff?.+|woff2?.+)$/,
@@ -99,6 +102,7 @@ module.exports = {
 
   plugins: [
     new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
 
     // environment globals added must be added to .eslintrc
     new webpack.DefinePlugin({
@@ -111,12 +115,10 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      // where to find the handlebars template
-      template: path.join(srcDir, 'index.hbs'),
-
+      // where to find the html template
+      template: path.join(srcDir, 'index.html'),
       // where to put the generated file
       path: distDir,
-
       // the output file name
       filename: 'index.html',
     }),
